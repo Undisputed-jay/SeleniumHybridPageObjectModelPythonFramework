@@ -11,7 +11,7 @@ from utilities import ExcelUtils
 
 # @pytest.mark.usefixtures("setup_and_teardown") --- remove this when you introduce BaseTest to the TestLogin class
 class TestLogin(BaseTest):
-    @pytest.mark.parametrize("email_address, password", ExcelUtils.get_data_from_excel(path = "ExcelFiles/tutorialsninja.xlsx", sheet_name = "LoginTest"))
+    @pytest.mark.parametrize("email_address, password", ExcelUtils.get_data_from_excel(path = "tests/ExcelFiles/tutorialsninja.xlsx", sheet_name = "LoginTest"))
     def test_login_with_valid_credentials(self, email_address, password): # pass the email address and password for the parametrize here
         home_page = HomePage(self.driver)
         # self.driver.find_element(By.XPATH, "//span[text()='My Account']").click()
