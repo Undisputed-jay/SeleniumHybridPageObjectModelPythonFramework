@@ -7,7 +7,7 @@ from pageobject.Login import Login
 from pageobject.MyAccount import MyAccount
 from pageobject.BaseTest import BaseTest
 
-from utilities import ExcelUtils
+from utilities.ExcelUtils import ExcelUtils
 
 # @pytest.mark.usefixtures("setup_and_teardown") --- remove this when you introduce BaseTest to the TestLogin class
 class TestLogin(BaseTest):
