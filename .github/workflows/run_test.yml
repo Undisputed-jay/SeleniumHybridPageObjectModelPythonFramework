@@ -26,9 +26,9 @@ jobs:
 
     - name: Run Tests
       run: |
-        pytest testCases/test_login.py
-        pytest testCases/test_register.py
-        pytest testCases/test_search.py
+        pytest tests/test_login.py
+        pytest tests/test_register.py
+        pytest tests/test_search.py
 
     - name: Generate HTML Report
       run: |
