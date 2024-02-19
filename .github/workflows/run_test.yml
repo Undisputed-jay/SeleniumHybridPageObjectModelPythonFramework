@@ -1,10 +1,9 @@
-name: Automating Login
+name: Run Tests and Generate Report
 
 on:
   push:
     branches:
-      - main  # Change this to your default branch if different
-  pull_request:
+      - main
 
 jobs:
   test:
@@ -17,7 +16,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: 3.8  # Change this to your desired Python version
+        python-version: 3.8
 
     - name: Install Dependencies
       run: |
@@ -25,12 +24,15 @@ jobs:
         pip install -r requirements.txt  # Add any additional dependencies if required
         pip install pytest-html
 
-    - name: Run Tests and Generate HTML Report
+    - name: Run Tests
       run: |
-        pytest --html=report.html testCases/test_login.py
-        pytest --html=report.html testCases/test_register.py
-        pytest --html=report.html testCases/test_search.py
-      continue-on-error: true
+        pytest testCases/test_login.py
+        pytest testCases/test_register.py
+        pytest testCases/test_search.py
+
+    - name: Generate HTML Report
+      run: |
+        pytest --html=report.html
 
     - name: Upload HTML Report
       uses: actions/upload-artifact@v2
