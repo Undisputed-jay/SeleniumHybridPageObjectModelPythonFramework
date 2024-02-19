@@ -12,7 +12,9 @@ def setup_and_teardown(request):
     browser = ReadConfigurations.read_configuration("basic info", "browser") # here we pass the category name and key name
     driver = None # this is to use firefox, edge and chrome browser, if i change the browser to firefox in the config.ini, browser in config can be changed to chrome or edge
     if browser.__eq__("chrome"): # to check if the browser is another browser 
-        driver = webdriver.Chrome()
+        options = webdriver.ChromeOptions()
+        options.add_argument('--headless')
+        driver = webdriver.Chrome(options=options)
     elif browser.__eq__("firefox"):
         driver = webdriver.Firefox()
     elif browser.__eq__("edge"):
