@@ -13,6 +13,9 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v2
 
+    - name: List contents of the directory
+      run: ls -R
+
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
